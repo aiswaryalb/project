@@ -10,28 +10,13 @@
 	My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description 	
 </p>
 
-{% if articles|length %}
-<h3>Current Articles</h3>
+<h3> {{article.title}} </h3>
+<p>
+	
+	{{article.content}}
+</p>
 
-{% for article in  articles%}
-	<h5>
-		<a href="/myblog/article/{{article.id}}">
-			{{article.id}} {{article.title}}
-		</a>
-	</h5>
-	<h6>
-		 Created on : {{article.date}}
-		 Category: {{article.category}}
-	</h6>
-{% endfor %}
-{% else %}
-<h4>
-	Sorry ! no articles found
-
-</h4>
-{%endif%}
-
-<p><a href="/myblog/article/add_new">Add new Article </a></p>
+<a href="/myblog/delete_article/{{article.id}}"><button>Delete</button></a>
 
 </body>
 </html>

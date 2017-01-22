@@ -10,28 +10,26 @@
 	My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description My Blog Description 	
 </p>
 
-{% if articles|length %}
-<h3>Current Articles</h3>
+<h3>
+	New Article
+</h3>
 
-{% for article in  articles%}
-	<h5>
-		<a href="/myblog/article/{{article.id}}">
-			{{article.id}} {{article.title}}
-		</a>
-	</h5>
-	<h6>
-		 Created on : {{article.date}}
-		 Category: {{article.category}}
-	</h6>
-{% endfor %}
-{% else %}
-<h4>
-	Sorry ! no articles found
+<p>
+	<form action = "/myblog/article/add_new" method = "POST">
+	{% csrf_token %}
+		
+	
+	<input type="text" name="title" placeholder="Title">
+	<br>
+	<textarea name = "content" placeholder=" content"></textarea>
+	<br>
+	<button type = "submit">Create</button>	
+	</form>
+	
+</p>
 
-</h4>
-{%endif%}
 
-<p><a href="/myblog/article/add_new">Add new Article </a></p>
+<p><a href="/myblog/">back to home</a></p>
 
 </body>
 </html>
